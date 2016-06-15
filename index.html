@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>nzgray</title>
+      <style>
+       html {
+           height: 100%;
+       }
+
+       body {
+           display: flex;
+           flex-direction: column;
+           height: 100%;
+           margin: 0;
+           background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0));
+       }
+
+       nav {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           height: 95%;
+       }
+
+       @font-face {
+           font-family: "Chunkfive";
+           src: url("assets/webfonts/Chunkfive-webfont.woff") format("woff"),
+                url("assets/webfonts/Chunkfive-webfont.eot") format("eot"),
+                url("assets/webfonts/Chunkfive-webfont.ttf") format("truetype"),
+                url("assets/webfonts/Chunkfive-webfont.svg") format("svg");
+       }
+
+       @font-face {
+           font-family: "League Spartan";
+           src: url("assets/webfonts/leaguespartan-bold.woff") format("woff"),
+                url("assets/webfonts/leaguespartan-bold.eot") format("eot"),
+                url("assets/webfonts/leaguespartan-bold.ttf") format("truetype"),
+                url("assets/webfonts/leaguespartan-bold.svg") format("svg");
+       }
+
+       @keyframes fade-in {
+           from {opacity: 0; position: relative; left: 100px; }
+           to {opacity: 0.9; position: relative; left: 0px; }
+       }
+
+       h1 {
+           color: white;
+           font-family: "Chunkfive", sans-serif;
+           font-size: 160px;
+           font-weight: 500;
+           text-align: center;
+           letter-spacing: 5px;
+           opacity: 0.9;
+           animation-name: fade-in;
+           animation-duration: 1s;
+       }
+
+       @keyframes spin-z {
+           0% { transform: rotate(0deg); }
+           100% { transform: rotate(360deg); }
+       }
+
+       #z {
+           animation-name: spin-z;
+           animation-duration: 1s;
+           display: inline-block;
+       }
+
+       a {
+           text-decoration: none;
+       }
+
+       ul a {
+           color: white;
+           font-family: "League Spartan";
+           font-size: 22px;
+       }
+
+       li {
+           list-style-type: none;
+           text-align: right;
+           margin-right: 20px;
+           animation-name: fade-in;
+           animation-duration: 1s;
+           opacity: 0.9;
+       }
+
+       #background_location {
+           color: white;
+           font-family: "League Spartan", sans-serif;
+           font-size: 14px;
+           font-weight: 300;
+           margin-left: 40px;
+           margin-bottom: 40px;
+           opacity: 0.8;
+       }
+
+       #external_links {
+           height: 40px;
+           margin-top: 40px;
+           margin-right: 20px;
+           display: flex;
+           flex-direction: row;
+           justify-content: flex-end;
+       }
+
+       .external_link {
+           height: 30px;
+           width: 30px;
+           cursor: pointer;
+           margin-right: 20px;
+       }
+
+       #github {
+           background: url("assets/images/github.svg") no-repeat;
+           background-size: contain;
+       }
+
+       #linkedin {
+           background: url("assets/images/linkedin.png") no-repeat;
+           background-size: contain;
+       }
+      </style>
+   </head>
+
+   <body>
+      <div id="external_links">
+         <a href="https://github.com/nathanaelg" target="_blank">
+            <div id="github" class="external_link"></div>
+         </a>
+         <a href="https://www.linkedin.com/in/nathanael-gray-7b85a825" target="_blank">
+            <div id="linkedin" class="external_link"></div>
+         </a>
+      </div>
+      <nav>
+         <ul>
+            <li><a href="https://www.nzgray.com/about">about</a></li>
+            <li><a href="https://finances.nzgray.com">finances</a></li>
+            <li><a href="https://fivehundred.nzgray.com">fivehundred</a></li>
+         </ul>
+         <h1>n<span id="z">z</span>gray</h1>
+      </nav>
+      <div id="background_location"></div>
+   </body>
+
+   <script>
+    var backgrounds = ["chester_cathedral.jpg", "st_peters_basilica.jpg",
+                       "neuschwanstein_trees.jpg", "brixton_sky.jpg",
+                       "place_des_vosges.jpg", "paris_buildings_twilight.jpg"];
+    var background_locations = ["Chester Cathedral, England", "St. Peter's Basilica, Vatican City",
+                                "Neuschwanstein Castle, Germany", "Brixton, England",
+                                "Place des Vosges, Paris", "Paris, France"];
+    var i = Math.floor(Math.random() * backgrounds.length);
+    var background = backgrounds[i];
+    var background_location = background_locations[i];
+    document.documentElement.style.background = "url(assets/images/" + background + ") no-repeat center center fixed";
+    document.documentElement.style.backgroundSize = "cover";
+    document.getElementById("background_location").innerHTML = background_location;
+   </script>
+
+</html>
